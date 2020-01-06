@@ -1,0 +1,115 @@
+.datepicker-dateList {
+    display: flex;
+    margin: 2px 0 2px 0;
+}
+
+.datepicker-date-day-Item {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 12px 0 12px;
+    width: 45px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    /* color: #e6545b; */
+}
+
+
+.datepicker-strip {
+    display: flex;
+    /*align-items: center;*/
+    flex-direction: column;
+    margin-top: 10px;
+    width: max-content;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.date-day-Item-selected {
+    /* font-weight: bold; */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* border: 2px solid #e6545b;
+    background-color: #e6545b; */
+    border: 2px solid #e6545b;
+    color: #e6545b;
+
+}
+
+.datepicker-date-day-Item:hover{
+    background-color:  #e6545b;
+    border: 2px solid #e6545b;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.date-day-item-disabled {
+    color: rgb(176, 176, 176);
+    pointer-events: none; 
+}
+
+.datepicker-datelist-scrollable {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin: 2px 0 2px 0;
+
+}
+
+.datepicker-datelist-scrollable::-webkit-scrollbar {
+    -webkit-appearance: none;
+    display: none;
+}
+
+.datepicker{
+    display: flex;
+    margin: 12px;
+    align-items: center;
+}
+
+.datepicker-day-label{
+    font-size: 12px;
+    margin: 4px 0 0 0;
+}
+
+.datepicker-button-previous, .datepicker-button-next{
+    border: none;
+    text-decoration: none;
+    background: #e6545b;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.datepicker-button-previous{
+    margin-right: 16px;
+    transform: rotate(180deg);
+    vertical-align: middle;
+}
+.datepicker-button-next{
+    margin-left: 16px;
+}
+
+.datepicker-month-label  {
+    margin-left: 12px;
+    font-size: 15px;
+    color: #e6545b;
+    font-weight: bold;
+}
+
+.datepicker-date-label  {
+    /* font-size: 12px; */
+    margin-top: -3px;
+}
