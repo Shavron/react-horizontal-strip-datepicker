@@ -21,7 +21,7 @@ Import:
 and use as:
 
 ```javascript
-    <ReactHorizontalDatePicker selectedDay={onSelectedDay} enableScroll={true} enableDays={90}/>
+<ReactHorizontalDatePicker selectedDay={onSelectedDay} enableScroll={true} enableDays={90}/>
 ```
 
 Available Props are
