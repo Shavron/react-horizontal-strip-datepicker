@@ -32,7 +32,7 @@ Available Props are
 | selectedDay   | Function|          | Function to get the selected Day             |
 | enableDays    | Number  |   90     | Number of days to render from current date   |
 
-endDate currently has no effect on non scrolling list
+enableDays has no effect if enableScroll is true.
 
 Example:
 
