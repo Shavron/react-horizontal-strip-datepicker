@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { Waypoint } from 'react-waypoint';
 import "./ReactHorizontalDatePicker.css";
 import { format, addWeeks, subWeeks, addDays, subDays, isSameDay, isBefore, getDate } from "date-fns";
@@ -13,13 +13,6 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
     enableScroll = enableScroll || false;
     enableDays = enableScroll === true ? enableDays || 90 : 7 ; 
     const heading_dateFormat = "MMM yyyy";
-
-
-
-    useEffect(() => {
-        selectedDay(selectedDate);
-    },[selectedDate]);
-    
 
 
     const applyStyles = day => {
@@ -68,6 +61,7 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
 
     const onDateClick = day => {
         setSelectedDate(day);
+        selectedDay(selectedDate);
     };
 
     const nextScroll = () => {
