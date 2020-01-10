@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState,useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
 import "./ReactHorizontalDatePicker.css";
 import { format, addWeeks, subWeeks, addDays, subDays, isSameDay, isBefore, getDate } from "date-fns";
@@ -9,10 +9,15 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
     const [headingDate, setHeadingDate]     = useState(new Date());
     const [currentWeek, setCurrentWeek]     = useState(new Date());
     const [currentDate] = useState(new Date());
-    const scrollWidth = 60
+    const scrollWidth = 250
     enableScroll = enableScroll || false;
     enableDays = enableScroll === true ? enableDays || 90 : 7 ; 
     const heading_dateFormat = "MMM yyyy";
+
+    useEffect(() => {
+        console.log(headingDate);
+        
+    }, [headingDate])
 
 
     const applyStyles = day => {
@@ -27,24 +32,44 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
         return classes.join(' ');
     };
 
-    const getScroll = () => {
-        return enableScroll === true ? ' datepicker-datelist-scrollable' : ' datepicker-dateList';
-    };
+    const _handlePosition = (pos,date) =>{
+        let currentPosition = pos.currentPosition
+        let previousPosition = pos.previousPosition
+
+        if(previousPosition == 'inside' && currentPosition == 'above'){
+            setHeadingDate(date)
+        }
+        if(previousPosition == 'above' && currentPosition == 'inside'){
+            setHeadingDate(addDays(date, -1))
+        }
+
+    }
+
 
     const _verticalList = () => {
         const _dayFormat = "E";
         const _dateFormat = "dd";
+        const _monthFormat = "MMM";
         const _verticalListItems = [];
-        let _startDay = subDays(currentWeek, 1);
+        const _startDay = subDays(currentWeek, 1);
 
 
         for (let i = 0; i < enableDays; i++) {
+            let _day = format(addDays(_startDay, i), _dayFormat);
+            let _date = format(addDays(_startDay, i), _dateFormat)
+            let _month = format(addDays(_startDay, i), _monthFormat)
+
             _verticalListItems.push(
-                <Waypoint   key={i} horizontal={true}  onLeave={()=> setHeadingDate(addDays(_startDay, i)) }>
-                    <div className ={`datepicker-date-day-Item ${applyStyles(addDays(_startDay, i))}`} onClick={() => onDateClick(addDays(_startDay, i))}>
-                        <div className="datepicker-day-label ">{format(addDays(_startDay, i), _dayFormat)}</div>
-                        <div className="datepicker-date-label ">{format(addDays(_startDay, i), _dateFormat)}</div>
+
+                <Waypoint   key={i} horizontal={true} onPositionChange={(pos)=> _date == 1 ? _handlePosition(pos,addDays(_startDay, i)) : ''}>
+                <div className="wrapper">
+                    {format(addDays(_startDay, i), _dateFormat) == 1 ? <div className="scroll-head">{format(addDays(_startDay,i), 'MMM')}</div> : <div className="blank-space-div"></div> }
+                    <div id={i}  className ={`datepicker-date-day-Item ${applyStyles(addDays(_startDay, i))}`} onClick={() => onDateClick(addDays(_startDay, i))}>
+                    
+                        <div className="datepicker-day-label ">{_day}</div>
+                        <div className="datepicker-date-label ">{_date}</div>
                     </div>
+                </div>
                 </Waypoint>
                 );
         }
@@ -53,7 +78,7 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
         
 
     return (
-        <div id="container" className={getScroll()}>
+        <div id="container" className={enableScroll === true ? ' datepicker-datelist-scrollable' : ' datepicker-dateList'}>
             {_verticalListItems}
         </div>
     )
@@ -73,17 +98,25 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
     }; 
 
 
-
     return (
 
         <div className="datepicker-strip">
-            <span  className="datepicker-month-label ">{format(headingDate, heading_dateFormat)}</span>
+            <span  className="datepicker-month-label ">{format(selectedDate, 'dd MMM yyy')}</span>
             <div className="datepicker">
-                <button className="datepicker-button-previous" onClick={prevScroll}>⮞</button>
+                <div className="wrapper">
+                    <div className="scroll-head">{format(headingDate, 'MMM')}</div>
+                        <div  className="datepicker-button-previous-wrapper">
+                        <button className="datepicker-button-previous" onClick={prevScroll}>&#10132;</button>
+                    </div>
+                </div>
                 {_verticalList()}
-                <button className="datepicker-button-next" onClick={nextScroll}>⮞</button>
+                <div className="wrapper">
+                    <div className="blank-space-div"></div>
+                        <div  className="datepicker-button-previous-wrapper">
+                        <button className="datepicker-button-next" onClick={nextScroll}>&#10132;</button>
+                    </div>
+                </div>
             </div>
-            
         </div>
     )
 
