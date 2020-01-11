@@ -72,7 +72,6 @@ export default function ReactHorizontalDatePicker({
       }, format(addDays(_startDay, i), 'MMM')) : React.createElement("div", {
         className: "blank-space-div"
       }), React.createElement("div", {
-        id: i,
         className: `datepicker-date-day-Item ${applyStyles(addDays(_startDay, i))}`,
         onClick: () => onDateClick(addDays(_startDay, i))
       }, React.createElement("div", {
@@ -112,8 +111,8 @@ export default function ReactHorizontalDatePicker({
   }, React.createElement("div", {
     className: "scroll-head"
   }, format(headingDate, 'MMM')), React.createElement("div", {
-    className: "datepicker-button-previous-wrapper"
-  }, React.createElement("button", {
+    className: "button-previous"
+  }, " ", React.createElement("button", {
     className: "datepicker-button-previous",
     onClick: prevScroll
   }, "\u2794"))), _verticalList(), React.createElement("div", {
@@ -121,8 +120,8 @@ export default function ReactHorizontalDatePicker({
   }, React.createElement("div", {
     className: "blank-space-div"
   }), React.createElement("div", {
-    className: "datepicker-button-previous-wrapper"
-  }, React.createElement("button", {
+    className: "button-previous"
+  }, " ", React.createElement("button", {
     className: "datepicker-button-next",
     onClick: nextScroll
   }, "\u2794")))));
