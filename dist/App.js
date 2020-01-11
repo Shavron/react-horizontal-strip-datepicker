@@ -10,7 +10,7 @@ function App() {
   return React.createElement(ReactHorizontalDatePicker, {
     selectedDay: onSelectedDay,
     enableScroll: true,
-    enableDays: 90
+    enableDays: 180
   });
 }
 

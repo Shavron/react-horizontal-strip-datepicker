@@ -1,11 +1,6 @@
 {
   "name": "react-horizontal-strip-datepicker",
-  "version": "0.1.7",
-  "homepage": "https://github.com/Shavron/react-horizontal-strip-datepicker",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Shavron/react-horizontal-strip-datepicker.git"
-  },
+  "version": "0.1.11",
   "keywords": [
     "react",
     "react date-picker",
