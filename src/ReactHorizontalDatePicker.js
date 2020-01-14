@@ -64,10 +64,10 @@ export default function ReactHorizontalDatePicker({enableDays,enableScroll,selec
                 <Waypoint   key={i} horizontal={true} onPositionChange={(pos)=> _date == 1 ? _handlePosition(pos,addDays(_startDay, i)) : ''}>
                 <div className="wrapper">
                     {format(addDays(_startDay, i), _dateFormat) == 1 ? <div className="scroll-head">{format(addDays(_startDay,i), 'MMM')}</div> : <div className="blank-space-div"></div> }
-                    <div  className ={`datepicker-date-day-Item ${applyStyles(addDays(_startDay, i))}`} onClick={() => onDateClick(addDays(_startDay, i))}>
+                    <div  className ={`datepicker-date-day-Item wrapper ${applyStyles(addDays(_startDay, i))}`} onClick={() => onDateClick(addDays(_startDay, i))}>
                     
                         <div className="datepicker-day-label ">{_day}</div>
-                        <div className="datepicker-date-label ">{_date}</div>
+                        <div className="datepicker-date-label ripple ">{_date}</div>
                     </div>
                 </div>
                 </Waypoint>
