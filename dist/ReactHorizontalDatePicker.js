@@ -72,12 +72,12 @@ export default function ReactHorizontalDatePicker({
       }, format(addDays(_startDay, i), 'MMM')) : React.createElement("div", {
         className: "blank-space-div"
       }), React.createElement("div", {
-        className: `datepicker-date-day-Item ${applyStyles(addDays(_startDay, i))}`,
+        className: `datepicker-date-day-Item wrapper ${applyStyles(addDays(_startDay, i))}`,
         onClick: () => onDateClick(addDays(_startDay, i))
       }, React.createElement("div", {
         className: "datepicker-day-label "
       }, _day), React.createElement("div", {
-        className: "datepicker-date-label "
+        className: "datepicker-date-label ripple "
       }, _date)))));
     }
 
