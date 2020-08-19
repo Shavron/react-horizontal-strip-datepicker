@@ -10,7 +10,7 @@ A stable horizontal date picker with the option to scroll for web
 
 ### Installation
 
-Run `yarn add react-horizontal-strip-datepicker`
+Run `npm add npm-react-horizontal-strip-datepicker`
 
 ### Usage
 
