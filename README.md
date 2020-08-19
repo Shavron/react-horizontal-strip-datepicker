@@ -16,9 +16,8 @@ Run `npm add npm-react-horizontal-strip-datepicker`
 
 Import:
 
-`import ReactHorizontalDatePicker from "react-horizontal-strip-datepicker";
-import 'react-horizontal-strip-datepicker/dist/ReactHorizontalDatePicker.css'
-`
+`import ReactHorizontalDatePicker from "react-horizontal-strip-datepicker";`
+`import 'react-horizontal-strip-datepicker/dist/ReactHorizontalDatePicker.css'`
 
 and use as:
 
