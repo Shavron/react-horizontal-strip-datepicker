@@ -112,7 +112,7 @@ export default React.memo(function ReactHorizontalDatePicker({
 
   const onDateClick = day => {
     setSelectedDate(day);
-    selectedDay(selectedDate);
+    selectedDay(day);
   };
 
   const nextScroll = () => {
