@@ -26,16 +26,18 @@ and use as:
   selectedDay={onSelectedDay}
   enableScroll={true}
   enableDays={80}
+  enableDaysBefore={2}
 />
 ```
 
 Available Props are
 
-| Prop         | Type     | Default | Description                                |
-| ------------ | -------- | ------- | ------------------------------------------ |
-| enableScroll | Boolean  | false   | Set List to be scrollable                  |
-| selectedDay  | Function |         | Function to get the selected Day           |
-| enableDays   | Number   | 90      | Number of days to render from current date |
+| Prop               | Type     | Default | Description                                  |
+| -------------------| -------- | ------- | ------------------------------------------ --|
+| enableScroll       | Boolean  | false   | Set List to be scrollable                    |
+| selectedDay        | Function |         | Function to get the selected Day             |
+| enableDays         | Number   | 90      | Number of days to render from current date   |
+| enableDaysBefore   | Number   | 0       | Number of days to render before current date |
 
 enableDays has no effect if enableScroll is true.
 
@@ -57,6 +59,7 @@ const App = () => {
       selectedDay={onSelectedDay}
       enableScroll={true}
       enableDays={180}
+      enableDaysBefore={2}
     />
   )
 }
