@@ -37,7 +37,7 @@ Available Props are
 | enableScroll       | Boolean  | false   | Set List to be scrollable                  |
 | selectedDay        | Function |         | Function to get the selected Day           |
 | enableDays         | Number   | 90      | Number of days to render from current date |
-| enableDaysBefore   | Number   | 90     | Number of days to render before current date |
+| enableDaysBefore   | Number   | 0     | Number of days to render before current date |
 
 enableDays has no effect if enableScroll is true.
 
