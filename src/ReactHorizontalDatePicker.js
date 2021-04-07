@@ -18,6 +18,10 @@ export default React.memo(function ReactHorizontalDatePicker({
   selectedDay
 }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  useEffect(() => {
+    selectedDay(selectedDate);
+  }, [selectedDate]);
+
   const [headingDate, setHeadingDate] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState(new Date());
   const [currentDate] = useState(new Date());
@@ -112,7 +116,6 @@ export default React.memo(function ReactHorizontalDatePicker({
 
   const onDateClick = day => {
     setSelectedDate(day);
-    selectedDay(selectedDate);
   };
 
   const nextScroll = () => {
